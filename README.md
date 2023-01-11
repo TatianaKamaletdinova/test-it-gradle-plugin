@@ -109,7 +109,8 @@ Run the task and look at the logs
 
 
 * If you run gradle task 'gradle tasks' you will see the Test IT task of list tasks task.
-![](../../../../var/folders/zw/mkqc10nx0r3gvtmyhs1xn8780000gn/T/TemporaryItems/NSIRD_screencaptureui_mNL0aO/Screenshot 2023-01-11 at 22.51.41.png)
+<img width="385" alt="Screenshot 2023-01-11 at 23 36 07" src="https://user-images.githubusercontent.com/23185210/211912358-e66531b2-817c-478c-9762-6760577c0389.png">
+
 
 ### Need Gradle support?
 Contact me if you need help with Gradle at Telegram [@ITSurgeon](https://t.me/ITSurgeon).
