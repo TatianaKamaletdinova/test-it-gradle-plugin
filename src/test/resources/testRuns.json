@@ -1,0 +1,17 @@
+{
+  "startedOn": null,
+  "completedOn": null,
+  "stateName": "NotStarted",
+  "projectId": "e72d7d53-cd7f-42d2-abb5-6f06319f1aad",
+  "testPlanId": null,
+  "testResults": [],
+  "createdDate": "2023-01-10T16:34:11.567Z",
+  "modifiedDate": "2023-01-10T16:34:11.567Z",
+  "createdById": "635424b3-c7f1-455f-8e8a-16cd09ad2fd1",
+  "modifiedById": "635424b3-c7f1-455f-8e8a-16cd09ad2fd1",
+  "createdByUserName": "Татьяна Камалетдинова",
+  "id": "3ba0c3d8-7326-410e-8d66-90f0b4477ad9",
+  "name": "AllureRun 10 Jan 2023 19:29:02",
+  "description": null,
+  "launchSource": "Test IT"
+}

@@ -1,0 +1,46 @@
+--------- beginning of main
+01-03 00:26:31.165 10686 10774 I KASPRESSO: ___________________________________________________________________________
+01-03 00:26:31.172 10686 10774 I KASPRESSO: Logcat buffer may be dumped from 01-03 00:26:31.165
+01-03 00:26:31.173 10686 10774 I KASPRESSO: ---------------------------------------------------------------------------
+01-03 00:26:31.173 10686 10774 I KASPRESSO: BEFORE TEST SECTION
+01-03 00:26:31.173 10686 10774 I KASPRESSO: ---------------------------------------------------------------------------
+01-03 00:26:31.173 10686 10774 I KASPRESSO: ---------------------------------------------------------------------------
+01-03 00:26:31.173 10686 10774 I KASPRESSO: TEST SECTION
+01-03 00:26:31.173 10686 10774 I KASPRESSO: ---------------------------------------------------------------------------
+01-03 00:26:34.827 10686 10774 I KASPRESSO: ___________________________________________________________________________
+01-03 00:26:34.827 10686 10774 I KASPRESSO: TEST STEP: "1. На всех категориях данные" in Test675382mock
+01-03 00:26:35.080 10686 10686 I KASPRESSO: Check view has effective visibility <VISIBLE> on RecyclerView(id=categories;)
+01-03 00:26:35.106 10686 10686 I KASPRESSO: Check RecyclerView with <5> item(s), but got with <0> on RecyclerView(id=categories;)
+01-03 00:26:35.118 10686 10686 I KASPRESSO: scroll RecyclerView to position: 0 on RecyclerView(id=categories;)
+01-03 00:26:35.209 10686 10686 I KASPRESSO: Check an instance of android.widget.TextView and view.getText() with or without transformation to match: is "На подпись" on TextView(id=categoryName;text=На подпись;)
+01-03 00:26:35.247 10686 10686 I KASPRESSO: Check an instance of android.widget.TextView and view.getText() with or without transformation to match: is "134 565" on CounterSolid(id=documentsCounter;text=134 565;)
+01-03 00:26:35.293 10686 10686 I KASPRESSO: Check view has effective visibility <VISIBLE> on IconBackgroundCellUnit(id=categoryIcon;)
+01-03 00:26:35.330 10686 10686 I KASPRESSO: Check not (view has effective visibility <VISIBLE> and view.getGlobalVisibleRect() to return non-empty rectangle) on SpinnerView2(id=loadingIcon;)
+01-03 00:26:35.339 10686 10686 I KASPRESSO: scroll RecyclerView to position: 1 on RecyclerView(id=categories;)
+01-03 00:26:35.406 10686 10686 I KASPRESSO: Check an instance of android.widget.TextView and view.getText() with or without transformation to match: is "К акцепту" on TextView(id=categoryName;text=К акцепту;)
+01-03 00:26:35.438 10686 10686 I KASPRESSO: Check an instance of android.widget.TextView and view.getText() with or without transformation to match: is "13 456" on CounterSolid(id=documentsCounter;text=13 456;)
+01-03 00:26:35.471 10686 10686 I KASPRESSO: Check view has effective visibility <VISIBLE> on IconBackgroundCellUnit(id=categoryIcon;)
+01-03 00:26:35.503 10686 10686 I KASPRESSO: Check not (view has effective visibility <VISIBLE> and view.getGlobalVisibleRect() to return non-empty rectangle) on SpinnerView2(id=loadingIcon;)
+01-03 00:26:35.512 10686 10686 I KASPRESSO: scroll RecyclerView to position: 2 on RecyclerView(id=categories;)
+01-03 00:26:35.583 10686 10686 I KASPRESSO: Check an instance of android.widget.TextView and view.getText() with or without transformation to match: is "На подтверждение" on TextView(id=categoryName;text=На подтверждение;)
+01-03 00:26:35.611 10686 10686 I KASPRESSO: Check an instance of android.widget.TextView and view.getText() with or without transformation to match: is "13 456" on CounterSolid(id=documentsCounter;text=13 456;)
+01-03 00:26:35.638 10686 10686 I KASPRESSO: Check view has effective visibility <VISIBLE> on IconBackgroundCellUnit(id=categoryIcon;)
+01-03 00:26:35.665 10686 10686 I KASPRESSO: Check not (view has effective visibility <VISIBLE> and view.getGlobalVisibleRect() to return non-empty rectangle) on SpinnerView2(id=loadingIcon;)
+01-03 00:26:35.673 10686 10686 I KASPRESSO: scroll RecyclerView to position: 3 on RecyclerView(id=categories;)
+01-03 00:26:35.734 10686 10686 I KASPRESSO: Check an instance of android.widget.TextView and view.getText() with or without transformation to match: is "К отправке" on TextView(id=categoryName;text=К отправке;)
+01-03 00:26:35.759 10686 10686 I KASPRESSO: Check an instance of android.widget.TextView and view.getText() with or without transformation to match: is "0" on CounterSolid(id=documentsCounter;text=0;)
+01-03 00:26:35.783 10686 10686 I KASPRESSO: Check view has effective visibility <VISIBLE> on IconBackgroundCellUnit(id=categoryIcon;)
+01-03 00:26:35.818 10686 10686 I KASPRESSO: Check not (view has effective visibility <VISIBLE> and view.getGlobalVisibleRect() to return non-empty rectangle) on SpinnerView2(id=loadingIcon;)
+01-03 00:26:35.826 10686 10686 I KASPRESSO: scroll RecyclerView to position: 4 on RecyclerView(id=categories;)
+01-03 00:26:35.904 10686 10686 I KASPRESSO: Check an instance of android.widget.TextView and view.getText() with or without transformation to match: is "Завершённые" on TextView(id=categoryName;text=Завершённые;)
+01-03 00:26:35.928 10686 10686 I KASPRESSO: Check an instance of android.widget.TextView and view.getText() with or without transformation to match: is "3 440" on CounterSolid(id=documentsCounter;text=3 440;)
+01-03 00:26:35.957 10686 10686 I KASPRESSO: Check view has effective visibility <VISIBLE> on IconBackgroundCellUnit(id=categoryIcon;)
+01-03 00:26:35.987 10686 10686 I KASPRESSO: Check not (view has effective visibility <VISIBLE> and view.getGlobalVisibleRect() to return non-empty rectangle) on SpinnerView2(id=loadingIcon;)
+01-03 00:26:35.990 10686 10774 I KASPRESSO: TEST STEP: "1. На всех категориях данные" in Test675382mock SUCCEED. It took 0 minutes, 1 seconds and 162 millis. 
+01-03 00:26:35.990 10686 10774 I KASPRESSO: ___________________________________________________________________________
+01-03 00:26:36.336 10686 10774 I KASPRESSO: ---------------------------------------------------------------------------
+01-03 00:26:36.336 10686 10774 I KASPRESSO: AFTER TEST SECTION
+01-03 00:26:36.336 10686 10774 I KASPRESSO: ---------------------------------------------------------------------------
+01-03 00:26:36.337 10686 10774 I KASPRESSO: ---------------------------------------------------------------------------
+01-03 00:26:36.337 10686 10774 I KASPRESSO: TEST PASSED
+01-03 00:26:36.337 10686 10774 I KASPRESSO: ---------------------------------------------------------------------------

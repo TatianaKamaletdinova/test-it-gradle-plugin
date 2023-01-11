@@ -1,0 +1,44 @@
+[
+  {
+    "globalId": 1397750,
+    "isDeleted": false,
+    "mustBeApproved": false,
+    "id": "bdb05016-1f72-4f09-bebe-9371171811af",
+    "createdDate": "2023-01-11T11:20:17.807Z",
+    "modifiedDate": "2023-01-11T17:20:04.983Z",
+    "createdById": "635424b3-c7f1-455f-8e8a-16cd09ad2fd1",
+    "modifiedById": "635424b3-c7f1-455f-8e8a-16cd09ad2fd1",
+    "lastTestRunId": "2a4eb5c3-ba0d-4b97-938d-b3b599283f35",
+    "lastTestRunName": "AllureRun 10 Jan 2023 19:29:02",
+    "lastTestResultId": "a63e0fba-641b-46ff-9fb5-d154ab42463f",
+    "lastTestResultOutcome": "Passed",
+    "stabilityPercentage": 100,
+    "externalId": "1e9e8128599ca6f7c2ac1142e7f3070e",
+    "links": [
+      {
+        "id": "acd70ce5-5dea-4529-80e2-753d6f221f1d",
+        "title": "675382",
+        "url": "https://domain/projects/80439/tests/675382",
+        "description": null,
+        "type": "Related",
+        "hasInfo": false
+      }
+    ],
+    "projectId": "e72d7d53-cd7f-42d2-abb5-6f06319f1aad",
+    "name": "Проверяем корректную загрузку данных на экране",
+    "namespace": "test namespace",
+    "classname": null,
+    "steps": [],
+    "setup": [],
+    "teardown": [],
+    "title": null,
+    "description": null,
+    "labels": [
+      {
+        "globalId": 1373261,
+        "name": "severity"
+      }
+    ],
+    "isFlaky": false
+  }
+]
