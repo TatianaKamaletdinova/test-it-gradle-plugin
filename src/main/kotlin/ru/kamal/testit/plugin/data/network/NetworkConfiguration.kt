@@ -49,14 +49,6 @@ class NetworkConfiguration(
     }
 
     fun provideTestITApi(): TestITApi {
-        val trustAllCerts: Array<TrustManager> = arrayOf(
-            object : X509TrustManager {
-                override fun checkClientTrusted(p0: Array<out X509Certificate>?, p1: String?) {}
-                override fun checkServerTrusted(p0: Array<out X509Certificate>?, p1: String?) {}
-                override fun getAcceptedIssuers(): Array<X509Certificate> = emptyArray()
-            }
-        )
-
         val clientOk: OkHttpClient.Builder = defaultOkHttpClient.newBuilder()
             .addInterceptor(Interceptor { chain ->
                 chain.proceed(
@@ -71,12 +63,6 @@ class NetworkConfiguration(
                 logging.setLevel(HttpLoggingInterceptor.Level.BODY)
                 addInterceptor(logging)
             }
-            .apply {
-                val sslContext: SSLContext = SSLContext.getInstance("SSL")
-                sslContext.init(null, trustAllCerts, SecureRandom())
-                sslSocketFactory(sslContext.socketFactory, trustAllCerts[0] as X509TrustManager)
-            }
-            .hostnameVerifier { _, _ -> true }
 
         val retrofit = defaultRetrofit.newBuilder()
             .client(clientOk.build())

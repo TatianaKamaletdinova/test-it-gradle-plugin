@@ -8,6 +8,7 @@ import ru.kamal.testit.plugin.data.model.AllureReport
 import ru.kamal.testit.plugin.data.model.AttachmentId
 import ru.kamal.testit.plugin.data.model.AllureLink
 import ru.kamal.testit.plugin.data.model.mapToTestResultsBody
+import ru.kamal.testit.plugin.data.model.responce.ResponseProjectDto
 import ru.kamal.testit.plugin.util.parser.AllureParser
 import java.io.File
 
@@ -23,6 +24,10 @@ class SendManager(
     private val testITRepository = TestITRepository(testITUrl, projectId, namespace)
 
     private val allureParser = AllureParser()
+
+    suspend fun getProject(): List<ResponseProjectDto?>?  {
+        return testITRepository.getProject()
+    }
 
     suspend fun initWorkTestIT() = withContext(Dispatchers.Default) {
 

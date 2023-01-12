@@ -118,7 +118,7 @@ class SendManagerTest {
                     namespace = "namespace",
                     inputDir = generatedFile,
                     configurationId = "configurationId",
-                    testRunName = "testRunName"
+                    testRunName = "testRunName",
                 ).initWorkTestIT()
             } catch (e: Exception) {
                 throw e
