@@ -62,7 +62,7 @@ Fill parameters with your configuration, where:
 * Format file should be '.json'.
 * It easy do by 'io.qameta.allure-report' plugin for generate file of test report.
 
-###Required fields in the file:
+### Required fields in the file:
 #### test_report_example.json
 ```json
 {
