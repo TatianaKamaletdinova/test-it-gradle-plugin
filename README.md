@@ -16,7 +16,7 @@ Plugin was written in Kotlin. Gradle use Kotlin DSL.
 ### Installation
 #### Gradle Users
 
-1. Add this dependency to your project build file:
+1. Add this dependency and configuration 'testIT' to your project build file:
 
 #### build.gradle
 ```groovy
