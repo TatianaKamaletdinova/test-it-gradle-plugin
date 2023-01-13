@@ -1,21 +1,78 @@
 plugins {
     `kotlin-dsl`
     `maven-publish`
+    `java-gradle-plugin`
+    signing
     kotlin("jvm") version "1.8.0"
     id("org.jetbrains.kotlin.kapt") version "1.8.0"
+    id("com.gradle.plugin-publish") version "1.0.0"
 }
 
+group = "io.github.kamaletdinova.testit-plugin-gradle"
+version = "0.0.1"
+
+// Configure java-gradle-plugin
 gradlePlugin {
+    uri("https://github.com/kamaletdinova/test-it-gradle-plugin")
+
     plugins {
-        register("test-it-gradle-plugin") {
-            group = "ru.kamal.testit"
-            id = "ru.kamal.testit"
-            version = "0.0.1"
+        register("testITGradlePlugin") {
+            id = "io.github.kamaletdinova.testit-plugin-gradle"
             implementationClass = "ru.kamal.testit.TestITPlugin"
             description = "Plugin for send autotests and them results to Test IT"
             displayName = "TestITPlugin"
+            uri("https://github.com/kamaletdinova/test-it-gradle-plugin")
         }
     }
+}
+
+// Configure plugin-publish plugin
+pluginBundle {
+    description = "Plugin for send autotests and them results to Test IT"
+    website = "https://github.com/kamaletdinova/test-it-gradle-plugin"
+    vcsUrl = "https://github.com/kamaletdinova/test-it-gradle-plugin"
+    tags = mutableListOf("Test IT", "testing", "test report")
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("testITGradlePlugin") {
+            artifactId = "test-it-gradle-plugin"
+            groupId = "io.github.kamaletdinova.testit-plugin-gradle"
+            version = "0.0.1"
+            from(components["kotlin"])
+
+            pom {
+                name.set(project.name)
+                description.set(project.description)
+                url.set("https://github.com/kamaletdinova/test-it-gradle-plugin")
+
+                scm {
+                    url.set("https://github.com/kamaletdinova/test-it-gradle-plugin")
+                }
+
+                licenses {
+                    license {
+                        name.set("The Apache Software License, Version 2.0")
+                        url.set("https://www.apache.org/licenses/LICENSE-2.0.txt")
+                        distribution.set("repo")
+                    }
+                }
+
+                developers {
+                    developer {
+                        id.set("ITSurgeon")
+                        name.set("Tatiana Kamaletdinova")
+                        email.set("kamaltatiana@yandex.ru")
+                    }
+                }
+            }
+        }
+    }
+}
+
+signing {
+    sign(publishing.publications["testITGradlePlugin"])
 }
 
 repositories {
