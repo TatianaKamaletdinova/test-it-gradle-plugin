@@ -83,12 +83,6 @@ Fill parameters with your configuration, where:
         }
     ],
     "historyId": "1e9e8128599ca6f7c2ac1142e7f3070e",
-    "labels": [
-        {
-            "name": "testName",
-            "value": "Проверяем корректную загрузку данных на экране"
-        }
-    ],
     "links": [
         {
             "name": "675382",
@@ -99,7 +93,6 @@ Fill parameters with your configuration, where:
 }
 ```
 * `links` - It is optional. Link to test-case.
-* `labels` - It is optional. If defines custom name for your test. If it is not provided, it get from root field "name".
 
 ### Execute Gradle Task
 Run the task and look at the logs
