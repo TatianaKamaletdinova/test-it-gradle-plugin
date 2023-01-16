@@ -1,0 +1,44 @@
+{
+    "name": "test",
+    "start": 1672698390761,
+    "stop": 1672698402325,
+    "status": "passed",
+    "attachments": [
+        {
+            "source": "cc70ea72-0585-4769-935e-5d1a4769c0b0-attachment.png",
+            "name": "Test675382mock_step_1.png",
+            "type": "image/png"
+        },
+        {
+            "source": "65abf81e-3a7b-4216-8939-269693d1779e-attachment.txt",
+            "name": "TestLogcat.txt",
+            "type": "text/plain"
+        }
+    ],
+    "historyId": "1e9e8128599ca6f7c2ac1142e7f3070e",
+    "labels": [
+        {
+            "name": "thread",
+            "value": "Instr: io.qameta.allure.android.runners.AllureAndroidJUnitRunner(43)"
+        },
+        {
+            "name": "framework",
+            "value": "junit4"
+        },
+        {
+            "name": "language",
+            "value": "kotlin"
+        },
+        {
+            "name": "testName",
+            "value": "Проверяем корректную загрузку данных на экране"
+        }
+    ],
+    "links": [
+        {
+            "name": "675382",
+            "url": "https://testit.corp.dev.vtb/projects/80439/tests/675382",
+            "type": "tms"
+        }
+    ]
+}

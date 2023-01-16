@@ -2,13 +2,13 @@ package ru.kamal.testit.plugin
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import ru.kamal.testit.plugin.data.model.body.TestResultsBody
-import ru.kamal.testit.plugin.data.repo.TestITRepository
+import ru.kamal.testit.plugin.data.model.AllureLink
 import ru.kamal.testit.plugin.data.model.AllureReport
 import ru.kamal.testit.plugin.data.model.AttachmentId
-import ru.kamal.testit.plugin.data.model.AllureLink
+import ru.kamal.testit.plugin.data.model.body.TestResultsBody
 import ru.kamal.testit.plugin.data.model.mapToTestResultsBody
 import ru.kamal.testit.plugin.data.model.responce.ResponseProjectDto
+import ru.kamal.testit.plugin.data.repo.TestITRepository
 import ru.kamal.testit.plugin.util.parser.AllureParser
 import java.io.File
 
@@ -25,27 +25,30 @@ class SendManager(
 
     private val allureParser = AllureParser()
 
-    suspend fun getProject(): List<ResponseProjectDto?>?  {
+    suspend fun getProject(): List<ResponseProjectDto?>? {
         return testITRepository.getProject()
     }
 
     suspend fun initWorkTestIT() = withContext(Dispatchers.Default) {
-
         val files = inputDir.listFiles()
 
         val newReports = withContext(Dispatchers.Default) {
             val newReports = mutableListOf<AllureReport>()
+
             files?.filter { it.extension == "json" }?.forEach { file ->
                 val rawReport = allureParser.parse(file.bufferedReader().readText())
                     ?: throw NullPointerException("json is empty")
-                val newReport = createOrUpdateAutoTestWithLink(rawReport, files)
+                val newReport = withContext(Dispatchers.Default) {
+                    createOrUpdateAutoTestWithLink(rawReport, files)
+                }
                 newReports.add(newReport)
             }
+
             newReports
         }
 
         val testRunId = createNewTestRun(testRunName)
-       // val testRunId = "2a4eb5c3-ba0d-4b97-938d-b3b599283f35"
+        // val testRunId = "2a4eb5c3-ba0d-4b97-938d-b3b599283f35"
         createTestResults(testRunId, newReports.map { it.mapToTestResultsBody(configurationId) })
     }
 
@@ -110,7 +113,8 @@ class SendManager(
 
     private suspend fun sendAttachment(file: File) = testITRepository.attachments(file)
 
-    private suspend fun createNewTestRun(testRunName: String): String = testITRepository.testRuns(testRunName)
+    private suspend fun createNewTestRun(testRunName: String): String =
+        testITRepository.testRuns(testRunName)
 
     private suspend fun createTestResults(
         testRunId: String,
