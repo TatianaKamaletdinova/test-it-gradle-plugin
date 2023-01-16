@@ -21,7 +21,7 @@ Plugin was written in Kotlin. Gradle use Kotlin DSL.
 #### build.gradle
 ```groovy
 plugins {
-    id 'ru.kamal.testit' version '0.0.1'
+    id 'ru.kamal.testit' version '0.0.2'
 }
 
 testIT {
