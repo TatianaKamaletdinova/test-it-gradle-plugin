@@ -6,14 +6,15 @@ import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
 import retrofit2.HttpException
-import ru.kamal.testit.plugin.data.network.TestITApi
 import ru.kamal.testit.plugin.data.model.body.CreateAutoTestBody
 import ru.kamal.testit.plugin.data.model.body.LinkAutoTestBody
 import ru.kamal.testit.plugin.data.model.body.TestResultsBody
 import ru.kamal.testit.plugin.data.model.body.TestRunBody
 import ru.kamal.testit.plugin.data.model.responce.GetAutoTestDtoItem
 import ru.kamal.testit.plugin.data.model.responce.ResponseProjectDto
+import ru.kamal.testit.plugin.data.model.responce.WorkItemsDto
 import ru.kamal.testit.plugin.data.network.NetworkConfiguration
+import ru.kamal.testit.plugin.data.network.TestITApi
 import java.io.File
 import java.nio.file.Files
 import java.time.LocalDateTime
@@ -23,6 +24,7 @@ class TestITRepository(
     testITUrl: String,
     private val projectId: String,
     private val namespace: String?,
+    privateToken: String
 ) {
 
     companion object {
@@ -30,7 +32,7 @@ class TestITRepository(
     }
 
     private val testIT: TestITApi =
-        NetworkConfiguration(testITUrl, "eTd3eGVFMWpFcHByUnNGSldy").provideTestITApi()
+        NetworkConfiguration(testITUrl, privateToken).provideTestITApi()
 
     private val labels = listOf(
         CreateAutoTestBody.LabelsAutoTest(
@@ -38,6 +40,10 @@ class TestITRepository(
             value = "critical",
         )
     )
+
+    suspend fun getWorkItemsById(globalId: String): WorkItemsDto? {
+        return testIT.getWorkItemsById(globalId)
+    }
 
     suspend fun getAutoTest(externalId: String): List<GetAutoTestDtoItem?>? {
         return testIT.getAutoTest(projectId, externalId)?.mapNotNull { it }
@@ -117,7 +123,7 @@ class TestITRepository(
     suspend fun testRuns(testRunName: String): String {
         val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")
         val current = LocalDateTime.now().format(formatter)
-        return testIT.testRuns(TestRunBody(projectId = projectId, "testRunName $current")).id
+        return testIT.testRuns(TestRunBody(projectId = projectId, "$testRunName $current")).id
             ?: throw NullPointerException("idTestRun is null")
     }
 

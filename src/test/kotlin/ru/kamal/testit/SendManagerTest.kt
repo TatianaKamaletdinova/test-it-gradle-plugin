@@ -66,7 +66,8 @@ class SendManagerTest {
                     namespace = "namespace",
                     inputDir = generatedFile,
                     configurationId = "configurationId",
-                    testRunName = "testRunName"
+                    testRunName = "testRunName",
+                    privateToken = "privateToken"
                 ).initWorkTestIT()
             } catch (e: Exception) {
                 throw e
@@ -119,6 +120,7 @@ class SendManagerTest {
                     inputDir = generatedFile,
                     configurationId = "configurationId",
                     testRunName = "testRunName",
+                    privateToken = "privateToken"
                 ).initWorkTestIT()
             } catch (e: Exception) {
                 throw e

@@ -1,6 +1,7 @@
 package ru.kamal.testit.plugin
 
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
 import kotlinx.coroutines.withContext
 import ru.kamal.testit.plugin.data.model.AllureLink
 import ru.kamal.testit.plugin.data.model.AllureReport
@@ -18,10 +19,11 @@ class SendManager(
     namespace: String,
     private val configurationId: String,
     private val inputDir: File,
-    private val testRunName: String
+    private val testRunName: String,
+    private val privateToken: String
 ) {
 
-    private val testITRepository = TestITRepository(testITUrl, projectId, namespace)
+    private val testITRepository = TestITRepository(testITUrl, projectId, namespace, privateToken)
 
     private val allureParser = AllureParser()
 
@@ -47,9 +49,8 @@ class SendManager(
             newReports
         }
 
-        val testRunId = createNewTestRun(testRunName)
-        // val testRunId = "2a4eb5c3-ba0d-4b97-938d-b3b599283f35"
-        createTestResults(testRunId, newReports.map { it.mapToTestResultsBody(configurationId) })
+       val testRunId = async { createNewTestRun(testRunName) }
+        createTestResults(testRunId.await(), newReports.map { it.mapToTestResultsBody(configurationId) })
     }
 
     private suspend fun createOrUpdateAutoTestWithLink(
@@ -63,22 +64,23 @@ class SendManager(
         val tms = rawReport.links?.find { it?.type == "tms" }
             ?: throw NullPointerException("links is empty")
 
-        val testName = rawReport.labels?.find { it?.name == "testName" }?.value
-            ?: rawReport.name ?: "test"
-
         return try {
-            val existAutoTest = testITRepository.getAutoTest(externalId)
-            if (existAutoTest == null || existAutoTest.isEmpty()) {
+            val testCase = testITRepository.getWorkItemsById(tms.name ?: throw NullPointerException("name is empty"))
+            val testName = testCase?.name ?: rawReport.name ?: "autotest"
+
+            val extId = testCase?.autoTests?.firstOrNull()?.externalId
+
+            if (extId == null) {
                 testITRepository.createAutoTestAndLink(
                     externalId = externalId,
-                    idTest = tms.name ?: throw NullPointerException("idTest is empty"),
+                    idTest = tms.name,
                     name = testName,
                     url = tms.url ?: ""
                 )
             } else {
                 testITRepository.updateAutoTest(
-                    externalId = externalId,
-                    idTest = tms.name ?: throw NullPointerException("idTest is empty"),
+                    externalId = extId,
+                    idTest = tms.name,
                     name = testName,
                     url = tms.url ?: ""
                 )

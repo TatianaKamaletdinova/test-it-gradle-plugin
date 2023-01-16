@@ -12,6 +12,7 @@ data class CreateAutoTestBody(
     val name: String,
     val namespace: String,
     val isFlaky: Boolean,
+    val steps: List<Step>? = null
 ) {
 
     @JsonClass(generateAdapter = true)
@@ -26,5 +27,11 @@ data class CreateAutoTestBody(
     data class LabelsAutoTest(
         val name: String,
         val value: String,
+    )
+
+    @JsonClass(generateAdapter = true)
+    data class Step(
+        val description: String,
+        val title: String
     )
 }

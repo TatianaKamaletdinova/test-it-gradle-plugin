@@ -7,10 +7,7 @@ import ru.kamal.testit.plugin.data.model.body.CreateAutoTestBody
 import ru.kamal.testit.plugin.data.model.body.LinkAutoTestBody
 import ru.kamal.testit.plugin.data.model.body.TestResultsBody
 import ru.kamal.testit.plugin.data.model.body.TestRunBody
-import ru.kamal.testit.plugin.data.model.responce.GetAutoTestDtoItem
-import ru.kamal.testit.plugin.data.model.responce.ResponseCreatedAutoTestDto
-import ru.kamal.testit.plugin.data.model.responce.ResponseProjectDto
-import ru.kamal.testit.plugin.data.model.responce.TestRunDto
+import ru.kamal.testit.plugin.data.model.responce.*
 
 interface TestITApi {
 
@@ -21,6 +18,7 @@ interface TestITApi {
         const val TEST_RUN = "testRuns"
         const val PROJECT = "projects"
         const val ATTACHMENTS = "Attachments"
+        const val WORK_ITEMS = "workItems/{globalId}"
     }
 
     /*Создание автотеста*/
@@ -86,4 +84,9 @@ interface TestITApi {
     @Multipart
     @POST(ATTACHMENTS)
     suspend fun attachments(@Part file: MultipartBody.Part): TestRunDto
+
+
+    @Headers("accept: application/json")
+    @GET(WORK_ITEMS)
+    suspend fun getWorkItemsById(@Path("globalId") globalId: String): WorkItemsDto?
 }

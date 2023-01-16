@@ -39,16 +39,20 @@ abstract class TestITTask : DefaultTask() {
     fun taskAction() {
         println("reportDir: ${reportDir.get().asFile}")
 
-        CoroutineScope(Dispatchers.Main + SupervisorJob()).launch {
-            SendManager(
-                testITUrl.get(),
-                projectId.get(),
-                namespace.get(),
-                configurationId.get(),
-                reportDir.get().asFile,
-                testRunName.get()
-            )
-                .initWorkTestIT()
+        runBlocking {
+            try {
+                SendManager(
+                    testITUrl.get(),
+                    projectId.get(),
+                    namespace.get(),
+                    configurationId.get(),
+                    reportDir.get().asFile,
+                    testRunName.get(),
+                    privateToken.get()
+                ).initWorkTestIT()
+            } catch (e: Exception) {
+                throw e
+            }
         }
     }
 }

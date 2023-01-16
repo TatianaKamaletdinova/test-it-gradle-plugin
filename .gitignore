@@ -1,4 +1,5 @@
-# Project exclude paths
-/.gradle/
-/build/
-/build/classes/
+# Default ignored files
+/shelf/
+/.idea/workspace.xml
+.gradle
+local.properties
