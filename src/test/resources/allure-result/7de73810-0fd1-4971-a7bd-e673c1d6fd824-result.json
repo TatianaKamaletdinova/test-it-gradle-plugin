@@ -5,11 +5,6 @@
     "status": "passed",
     "attachments": [
         {
-            "source": "cc70ea72-0585-4769-935e-5d1a4769c0b0-attachment.png",
-            "name": "Test675382mock_step_1.png",
-            "type": "image/png"
-        },
-        {
             "source": "65abf81e-3a7b-4216-8939-269693d1779e-attachment.txt",
             "name": "TestLogcat.txt",
             "type": "text/plain"
@@ -37,7 +32,7 @@
     "links": [
         {
             "name": "675382",
-            "url": "https://testit.corp.dev.vtb/projects/80439/tests/675382",
+            "url": "someLink/675382",
             "type": "tms"
         }
     ]
