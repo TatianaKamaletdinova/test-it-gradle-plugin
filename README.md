@@ -3,11 +3,12 @@
 Official github Test IT is *[Test IT Test Management System](https://github.com/testit-tms)*.
 
 Plugin does:
-1) Create or update autotest (by REST: "/autoTests") from your allure test result 
-2) Link to test-case (by REST: "/autoTests/{globalId}/workItems") 
-3) Send attachment if it exists (by REST: "Attachments")
-4) Create testRun (by REST: "/testRuns") 
-5) Send result (by REST: "testRuns/{testRunId}/testResults")
+1) Parse data from allire-result.json
+2) Create or update autotest (by REST: "/autoTests") from your allure test result 
+3) Link to test-case (by REST: "/autoTests/{globalId}/workItems") 
+4) Send attachment if it exists (by REST: "Attachments")
+5) Create testRun (by REST: "/testRuns") 
+6) Send result (by REST: "testRuns/{testRunId}/testResults")
 
 Plugin was written in Kotlin. Gradle use Kotlin DSL.
 
