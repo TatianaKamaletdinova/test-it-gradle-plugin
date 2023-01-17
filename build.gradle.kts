@@ -3,13 +3,13 @@ plugins {
     `maven-publish`
     `java-gradle-plugin`
     signing
-    kotlin("jvm") version "1.6.21"
+    kotlin("jvm") version "1.8.0"
     id("org.jetbrains.kotlin.kapt") version "1.8.0"
     id("com.gradle.plugin-publish") version "1.0.0"
 }
 
 group = "io.github.tatianakamaletdinova.testit-plugin-gradle"
-version = "0.0.2"
+version = "0.0.3"
 
 // Configure java-gradle-plugin
 gradlePlugin {
@@ -39,7 +39,7 @@ publishing {
         create<MavenPublication>("testITGradlePlugin") {
             artifactId = "test-it-gradle-plugin"
             groupId = "io.github.tatianakamaletdinova.testit-plugin-gradle"
-            version = "0.0.2"
+            version = "0.0.3"
             from(components["kotlin"])
 
             pom {
